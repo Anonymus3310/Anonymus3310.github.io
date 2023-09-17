@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload and Download</title>
+</head>
+<body>
+    <h1>File Upload and Download</h1>
+
+    <!-- File Upload Form -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Select a file to upload:</label>
+        <input type="file" name="file" id="file" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <!-- List of Uploaded Files -->
+    <h2>Uploaded Files:</h2>
+    <ul>
+        {% for file in files %}
+            <li><a href="/download/{{ file }}">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
